@@ -1,0 +1,13 @@
+body{
+	background-image: url("../images/stardust.png");
+	color:#ffd700;
+	font-size: 22px;
+}
+
+h1{
+	font-size: 60px;
+}
+
+.page-header{
+	border-bottom:none;
+}
