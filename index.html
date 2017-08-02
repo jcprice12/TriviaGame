@@ -8,31 +8,68 @@
 	<link type="text/css" rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-	<div class="container">
-		<div class="page-header">
-		  <h1>Trivia Game <small>Star Wars</small></h1>
+	<div id="gameHeader" class="container-fluid">
+		<div class="container">
+			<div class="page-header">
+		  		<h1><small>Star Wars Trivia</small></h1>
+		  	</div>
+	  	</div>
+	</div>
+	<div id="bodyContainer" class="container">
+		<div id="mainContent" class="container-fluid">
+			<div id="timeContainer" class="row container-fluid">
+				60
+			</div>
+			<div id="questionContainer" class="row">
+				Which one of the following characters is a "Bad Guy"?
+			</div>
+			<div id="answerChoicesContainer" class="row">
+				<div class="answerChoiceBox">
+					<div class="answerChoiceContainer">
+						Chewbacca
+					</div>
+				</div>
+				<div class="answerChoiceBox">
+					<div class="answerChoiceContainer">
+						Chewbacca
+					</div>
+				</div>
+				<div class="answerChoiceBox">
+					<div class="answerChoiceContainer">
+						Chewbacca
+					</div>
+				</div>
+				<div class="answerChoiceBox">
+					<div class="answerChoiceContainer">
+						Chewbacca
+					</div>
+				</div>
+				<div class="answerChoiceBox">
+					<div class="answerChoiceContainer">
+						Chewbacca
+					</div>
+				</div>
+			</div>
 		</div>
-		<div id="timeContainer" class="row">
-			60
+	</div>
+	<div id="overlay">
+		<div class="container-fluid">
+			<div class="container">
+				<div class="page-header">
+					<!-- I admit that this is a very hacky solution -->
+			  		<h1><small>Star Wars Trivia</small></h1>
+			  	</div>
+		  	</div>
 		</div>
-		<div id="questionContainer" class="row">
-			Which one of the following characters is a "Bad Guy"?
-		</div>
-		<div id="answerChoicesContainer" class="row">
-			<div class="answerChoiceContainer">
-				Chewbacca
-			</div>
-			<div class="answerChoiceContainer">
-				Boba Fett
-			</div>
-			<div class="answerChoiceContainer">
-				Han Solo
-			</div>
-			<div class="answerChoiceContainer">
-				Luke Skywalker
-			</div>
-			<div class="answerChoiceContainer">
-				Leia Organa
+		<div id="overlayContentContainer" class="container">
+			<div id="overlayContent" class="container-fluid">
+				<div id="overlayTitle" class="row">
+				</div>
+				<div id="overlayAnswer" class="row">
+				</div>
+			    <div id="overlayImageContainer" class="thumbnail row col-xs-12">
+		      		<img id="overlayImage" src="assets/images/image1.jpg" alt="image">
+			    </div>
 			</div>
 		</div>
 	</div>
