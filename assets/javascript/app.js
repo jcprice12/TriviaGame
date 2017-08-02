@@ -135,7 +135,6 @@ var game = {
   		console.log("building new screen");
   		this.inTransition = true;
   		//$("#overlay").css("height","100%");
-  		$("#overlayImage").attr("src", this.getRandomImage());
   		$("#overlayTitle").html(title);
   		$("#overlayAnswer").html("Correct Answer: " + this.currentQuestion.getChoices()[this.currentQuestion.getCorrectAnswer()]);
   		$("#overlay").animate({
@@ -174,6 +173,7 @@ var game = {
   		$("#overlay").animate({
   			"top": myHeight,
   		},1000, function(){
+  			$("#overlayImage").attr("src", game.getRandomImage());
   			if(typeof callback === "function"){
   				callback();
   			}
