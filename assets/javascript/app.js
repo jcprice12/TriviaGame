@@ -24,8 +24,23 @@ var game = {
 	currentQuestionIndex: null,
 	questionTimer: null,
 	score: null,
-	timeBetweenRounds: 3000,
+	timeBetweenRounds: 4000,
 	inTransition: false,
+	images: [
+		"assets/images/image1.jpg",
+		"assets/images/image2.jpg",
+		"assets/images/image3.jpg",
+		"assets/images/image4.jpg",
+		"assets/images/image5.jpg",
+		"assets/images/image6.jpg",
+		"assets/images/image7.jpg",
+		"assets/images/image8.jpg",
+		"assets/images/image9.jpg"
+	],
+	getRandomImage: function(){
+		var index = Math.floor(Math.random() * this.images.length);
+		return this.images[index];
+	},
 	startGame: function(){
 		this.questions = instantiateQuestions();
 		this.inTransition = false;
@@ -120,6 +135,7 @@ var game = {
   		console.log("building new screen");
   		this.inTransition = true;
   		//$("#overlay").css("height","100%");
+  		$("#overlayImage").attr("src", this.getRandomImage());
   		$("#overlayTitle").html(title);
   		$("#overlayAnswer").html("Correct Answer: " + this.currentQuestion.getChoices()[this.currentQuestion.getCorrectAnswer()]);
   		$("#overlay").animate({
@@ -141,6 +157,12 @@ var game = {
 				},game.timeBetweenRounds);
 			} else {
 				game.executeCompletionState();
+				if($(window).height() <= $("body").height()){
+					var myHeight = $("body").height();
+				} else {
+					var myHeight = $(window).height();
+				}
+				$("#overlay").css("height",myHeight);
 				setTimeout(function(){
 					game.removeOverlay("empty");
 				},game.timeBetweenRounds);
@@ -165,7 +187,12 @@ var game = {
 
 function instantiateQuestions(){
 	var questions = [];
-	questions.push(new Question(30, "Which one of these characters is a \"Bad Guy?\"", ["Boba Fett", "Chewbacca", "Luke Skywalker"], 0));
+	questions.push(new Question(20, "Who is Leia's adopted father?", ["Bail Organa", "Drex Organa", "Anakin Organa", "Greedo Organa"], 0));
+	questions.push(new Question(20, "In which movie do we see Han Solo rescued from Jabba the Hutt's palace?", ["Star Wars: Episode IV - A New Hope", "Star Wars: Episode V - The Empire Strikes Back", "Star Wars: Episode VI - Return of the Jedi"], 2));
+	questions.push(new Question(20, "Who is a 'scruffy-looking nerf herder?'", ["Luke Skywalker", "Han Solo", "Chewbacca", "Lando Calrissian"], 1));
+	questions.push(new Question(20, "An individual of this alien race looks like a teddy bear", ["Ithorian", "Bantha", "Wookies", "Ewoks"], 3));
+	questions.push(new Question(30, "Before being sent to do his chores by Uncle Owen, what were Luke's plans?", ["To go to Tosche Station to pick up some power converters", "Buy some droids from the the Jawas", "Kill the Tusken Raiders with Obi-Wan Kenobi"], 0));
+	questions.push(new Question(20, "Before revealing his true identity to Luke, what name did Obi-Wan Kenobi go by?", ["Ted Kenobi", "Ben Kenobi", "Ryan Kenobi", "Robert Kenobi"], 1));
 	return questions;
 }
 
